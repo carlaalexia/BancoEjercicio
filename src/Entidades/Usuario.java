@@ -1,6 +1,6 @@
 package Entidades;
 
-public class Usuario {
+public class Usuario{
 
     private String nombre;
     private String apellido;

@@ -1,17 +1,14 @@
 package Servicios;
 
 import Entidades.Cuenta;
-import Entidades.Usuario;
 
 import java.util.*;
 
 public class ServicioBanco {
 
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
+    static Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    static List<Cuenta> usuarios = new ArrayList<>();
     int opcion;
-    int num = 0;
-    String existe;
 
 
     public void menu() {
@@ -29,7 +26,7 @@ public class ServicioBanco {
             System.out.println("---------------------------");
             System.out.println("1. Crear usuario");
             System.out.println("2. Datos de usuario");
-            System.out.println("3. Realizar transaccion");
+            System.out.println("3. Ingresar a su cuenta");
             System.out.println("4. Salir");
 
 
@@ -43,7 +40,7 @@ public class ServicioBanco {
                         System.out.println(us.usuarios.toString());
                         break;
                     case 3:
-                        cs.transaccion();
+                        cs.validar();
                         break;
                     case 4:
                         System.out.println("Usted ha salido del banco, que tenga un buen dia");
