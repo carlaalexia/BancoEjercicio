@@ -1,22 +1,25 @@
 package Entidades;
 
-public class Clase1 {
+public class Usuario {
 
     private String nombre;
     private String apellido;
     private String email;
-    private int contraseña;
     private int edad;
+    private int telefono;
+    private String direccion;
 
-    public Clase1() {
+
+    public Usuario() {
     }
 
-    public Clase1(String nombre, String apellido, String email, int contraseña, int edad) {
+    public Usuario(String nombre, String apellido, String email, int edad, int telefono, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.contraseña = contraseña;
         this.edad = edad;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
     public String getNombre() {
@@ -43,14 +46,6 @@ public class Clase1 {
         this.email = email;
     }
 
-    public int getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(int contraseña) {
-        this.contraseña = contraseña;
-    }
-
     public int getEdad() {
         return edad;
     }
@@ -59,14 +54,31 @@ public class Clase1 {
         this.edad = edad;
     }
 
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     @Override
     public String toString() {
-        return "Clase1{" +
+        return "Usuario{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", email='" + email + '\'' +
-                ", contraseña=" + contraseña +
                 ", edad=" + edad +
-                '}';
+                ", telefono=" + telefono +
+                ", direccion='" + direccion + '\'' +
+                '}' + "\n";
     }
 }
