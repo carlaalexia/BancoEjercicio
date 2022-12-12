@@ -39,6 +39,10 @@ public class UsuarioServicio extends ServicioBanco {
 
                 System.out.println("Error: solo debe ingresar numeros " + b);
                 leer.next();
+            } catch (Exception b){
+                System.out.println("Error, intente nuevamente" + b);
+                leer.nextLine();
+
             }
 
 
@@ -62,7 +66,13 @@ public class UsuarioServicio extends ServicioBanco {
                 System.out.println("Error: solo se pueden ingresar numeros " + b);
                 enc = "si";
                 leer.nextLine();
+
+            }catch (Exception b){
+                System.out.println("Error, intente nuevamente" + b);
+                leer.nextLine();
+                enc = "si";
             }
+
         } while(enc =="si");
 
         System.out.println("Ingrese su email");
@@ -86,6 +96,10 @@ public class UsuarioServicio extends ServicioBanco {
                 System.out.println("Error: solo se pueden ingresar numeros " + b);
                 enc = "si";
                 leer.nextLine();
+            }catch (Exception b){
+                System.out.println("Error, intente nuevamente" + b);
+                leer.nextLine();
+
             }
         }while(enc =="si");
 
@@ -146,16 +160,24 @@ public class UsuarioServicio extends ServicioBanco {
                 11444366, "Gelly y Obes 992", 198765432,
                 "monica.barreto", 29941, 4000);
 
-       Cuenta c5 = new Cuenta("Victoria", "Corton", "cortonv@gmail.com", 27, 11454545, "vidt 456", 454545454,
+       Cuenta c5 = new Cuenta("Victoria", "Corton", "cortonv@gmail.com", 27, 11454545,
+               "vidt 456", 454545454,
                "victoria.corton", 12344, 80000  );
 
-       Cuenta c6 = new Cuenta("Soledad", "Marquez", "marquezsol@gmail.com", 32, 11676767, "Gelly y obes 990",
+       Cuenta c6 = new Cuenta("Soledad", "Marquez", "marquezsol@gmail.com", 32,
+               11676767, "Gelly y obes 990",
                676767678, "soledad.marquez", 12345, 10000);
+
+       Cuenta c7 = new Cuenta("Ezequiel", "Diaz", "diaze@gmail.com", 31, 1144556677,
+               "Tigre 123", 987654321, "ezequiel.diaz", 54321, 1000);
 
         usuarios.add(c1);
         usuarios.add(c2);
         usuarios.add(c3);
         usuarios.add(c4);
+        usuarios.add(c5);
+        usuarios.add(c6);
+        usuarios.add(c7);
 
 
     }

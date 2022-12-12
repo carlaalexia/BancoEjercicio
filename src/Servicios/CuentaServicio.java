@@ -85,7 +85,12 @@ public class CuentaServicio extends UsuarioServicio {
                 System.out.println("Error, solo puede ingresar numeros enteros" + b);
                 leido = false;
 
+            }catch (Exception b){
+                System.out.println("Error, intente nuevamente" + b);
+                leer.nextLine();
+                leido = false;
             }
+
         } while (leido == false);
 
         System.out.println("El dinero en su cuenta actualmente es de: " + c.getMontoDinero());
@@ -101,15 +106,26 @@ public class CuentaServicio extends UsuarioServicio {
             try {
                 int extraer;
                 extraer = leer.nextInt();
-                c.setMontoDinero(c.getMontoDinero() + extraer);
-                leido = true;
 
+                if (extraer <= c.getMontoDinero()) {
+                    c.setMontoDinero(c.getMontoDinero() - extraer);
+
+
+                } else {
+                    System.out.println("No tiene suficiente saldo");
+                }
+                leido = true;
 
 
             } catch (InputMismatchException b) {
                 System.out.println("Error, solo puede ingresar numeros enteros " + b);
                 leido = false;
+            }catch (Exception b){
+                System.out.println("Error, intente nuevamente" + b);
+                leer.nextLine();
+                leido = false;
             }
+
 
         } while (leido == false);
         System.out.println("El dinero en su cuenta actualmente es de: " + c.getMontoDinero());
@@ -133,6 +149,7 @@ public class CuentaServicio extends UsuarioServicio {
 
             }
 
+        boolean leido;
         String usuario = leer.next();
 
 
@@ -140,11 +157,37 @@ public class CuentaServicio extends UsuarioServicio {
             if (aux.getUsuarioNombre().equals(usuario)){
                 System.out.println("Usted le esta por enviar dinero a "+ aux.getApellido()+", "+ aux.getNombre() );
                 System.out.println(" ");
-                System.out.println("¿Cuanto desea enviar?");
-                int enviar = leer.nextInt();
 
-                aux.setMontoDinero(aux.getMontoDinero() + enviar);
-                c.setMontoDinero(c.getMontoDinero() - enviar);
+                do {
+
+                try {
+                    System.out.println("¿Cuanto desea enviar?");
+
+                    int enviar = leer.nextInt();
+                    if (enviar <= c.getMontoDinero()) {
+                        aux.setMontoDinero(aux.getMontoDinero() + enviar);
+                        c.setMontoDinero(c.getMontoDinero() - enviar);
+                        System.out.println("Se ha enviado el dinero a " + aux.getApellido() + ", " + aux.getApellido());
+
+                    } else {
+
+                        System.out.println("No tiene suficiente saldo");
+                    }
+                    leido = true;
+
+                } catch (InputMismatchException b){
+
+                    System.out.println("Solo puede ingresar numeros enteros " + b);
+                    leido = false;
+                } catch (Exception b){
+                    System.out.println("Error, intente nuevamente" + b);
+                    leer.nextLine();
+
+                }
+
+                } while (leido = false);
+
+
             }
 
         }
